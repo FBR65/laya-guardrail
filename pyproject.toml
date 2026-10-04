@@ -1,0 +1,58 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "laya-guardrail"
+version = "0.1.0"
+description = "Vorschaltstufe vor einem LLM-Aufruf: prueft Text mit dem Decision-Model Laya und liefert Urteile je Satz und Satzblock."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [{ name = "FBR65" }]
+keywords = ["guardrail", "llm", "moderation", "laya", "prompt-injection", "jailbreak"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "lingua-language-detector>=2.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+laya-guardrail = "laya_guardrail.cli:main"
+laya-guardrail-server = "laya_guardrail.server:main"
+
+[project.urls]
+Repository = "https://github.com/FBR65/laya-guardrail"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/laya_guardrail"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.10",
+]

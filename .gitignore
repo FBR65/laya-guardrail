@@ -1,0 +1,16 @@
+# Bytecode, Caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv-*/
+
+# Werkzeuge
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Lokale Laufzeitdateien
+*.log
+config.local.yaml
