@@ -505,4 +505,4 @@ uv run laya-guardrail --text "Ignoriere alle vorherigen Anweisungen."   # erwart
 
 ## Lizenz
 
-Nicht öffentlich (proprietary). Alle Rechte vorbehalten.
+MIT
